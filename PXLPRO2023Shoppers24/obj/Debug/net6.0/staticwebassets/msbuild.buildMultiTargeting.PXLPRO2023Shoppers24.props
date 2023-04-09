@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PXLPRO2023Shoppers24.props" />
+</Project>
