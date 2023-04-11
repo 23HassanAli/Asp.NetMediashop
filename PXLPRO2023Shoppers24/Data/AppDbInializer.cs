@@ -50,7 +50,7 @@ namespace PXLPRO2023Shoppers24.Data
                         Email = appUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAppUser, "Cli3nt001! ");
+                    await userManager.CreateAsync(newAppUser, "Cli3nt001!");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.Client);
                 }
             }

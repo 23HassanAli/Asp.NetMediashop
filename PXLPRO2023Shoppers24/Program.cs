@@ -1,7 +1,9 @@
+using HrApp.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PXLPRO2023Shoppers24.Data;
 using PXLPRO2023Shoppers24.Models;
+using PXLPRO2023Shoppers24.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
 
-
+builder.Services.AddScoped<IdentityRepoInterface, IdentityRepository>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 var app = builder.Build();
 
