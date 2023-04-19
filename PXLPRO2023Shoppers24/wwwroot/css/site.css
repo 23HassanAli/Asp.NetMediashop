@@ -16,3 +16,18 @@ html {
 body {
   margin-bottom: 60px;
 }
+.content{
+    height: 100vh;
+}
+.form-check-input:checked{
+    background: #673AB7;
+    border-color: #673AB7;
+}
+.fa{
+    padding:11px;
+    width: 38px;
+    text-align: none;
+    text-decoration:none;
+    margin:1px 3px;
+    border-radius: 50%;
+}
