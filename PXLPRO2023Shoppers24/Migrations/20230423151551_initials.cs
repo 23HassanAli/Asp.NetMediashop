@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PXLPRO2023Shoppers24.Migrations
 {
-    public partial class identityUsersInitials : Migration
+    public partial class initials : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,64 @@ namespace PXLPRO2023Shoppers24.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Laptops",
+                columns: table => new
+                {
+                    LaptopId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StockQuantity = table.Column<int>(type: "int", nullable: false),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductCategory = table.Column<int>(type: "int", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Processor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ScreenSize = table.Column<double>(type: "float", nullable: false),
+                    InternalRAM = table.Column<int>(type: "int", nullable: false),
+                    TotalStorageCapacity = table.Column<int>(type: "int", nullable: false),
+                    Touchscreen = table.Column<bool>(type: "bit", nullable: false),
+                    VideoCard = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Laptops", x => x.LaptopId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Smartphones",
+                columns: table => new
+                {
+                    GsmId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StockQuantity = table.Column<int>(type: "int", nullable: false),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductCategory = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IntroducedYear = table.Column<int>(type: "int", nullable: false),
+                    IntroductionMonth = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OperatingSystem = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Height = table.Column<double>(type: "float", nullable: false),
+                    Width = table.Column<double>(type: "float", nullable: false),
+                    Weight = table.Column<double>(type: "float", nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WaterResistant = table.Column<bool>(type: "bit", nullable: false),
+                    TotalStorageCapacity = table.Column<double>(type: "float", nullable: false),
+                    InternalRAM = table.Column<double>(type: "float", nullable: false),
+                    TotalRearCameras = table.Column<int>(type: "int", nullable: false),
+                    TotalNumberOfMegapixels = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Smartphones", x => x.GsmId);
                 });
 
             migrationBuilder.CreateTable(
@@ -211,6 +269,12 @@ namespace PXLPRO2023Shoppers24.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Laptops");
+
+            migrationBuilder.DropTable(
+                name: "Smartphones");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

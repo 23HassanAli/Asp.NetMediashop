@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PXLPRO2023Shoppers24.Data;
 
@@ -11,9 +12,10 @@ using PXLPRO2023Shoppers24.Data;
 namespace PXLPRO2023Shoppers24.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230423151551_initials")]
+    partial class initials
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -307,11 +309,11 @@ namespace PXLPRO2023Shoppers24.Migrations
 
             modelBuilder.Entity("PXLPRO2023Shoppers24.Models.Laptop", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("LaptopId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LaptopId"), 1L, 1);
 
                     b.Property<string>("Brand")
                         .IsRequired()
@@ -362,7 +364,7 @@ namespace PXLPRO2023Shoppers24.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("LaptopId");
 
                     b.ToTable("Laptops");
                 });

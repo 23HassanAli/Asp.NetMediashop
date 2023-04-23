@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
 
+builder.Services.AddScoped<ILaptopService, LaptopService>();
 builder.Services.AddScoped<IdentityRepoInterface, IdentityRepository>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
@@ -49,8 +50,6 @@ builder.Services.AddAuthentication()
     options.GetClaimsFromUserInfoEndpoint = true;
 });
 
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -72,4 +71,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 AppDbInializer.SeedUsersAndRolesAsync(app);
+AppDbInializer.Seed(app);
 app.Run();

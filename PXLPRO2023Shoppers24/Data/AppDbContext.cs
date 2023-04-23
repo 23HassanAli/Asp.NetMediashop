@@ -10,5 +10,7 @@ namespace PXLPRO2023Shoppers24.Data
         {
 
         }
+        public DbSet<Laptop> Laptops { get; set; }
+        public DbSet<Gsm> Smartphones { get; set; }    
     }
 }
