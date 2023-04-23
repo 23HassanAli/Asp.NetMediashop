@@ -1,0 +1,133 @@
+﻿@model PXLPRO2023Shoppers24.Models.Laptop
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="container-fluid">
+    <div class="col">
+        <div class="row">
+            <h1>@Model.Name</h1>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                @Model.Brand
+            </div>
+            <div class="col-5">
+                <img src="@Model.ImageURL" alt="@Model.Name"/>
+            </div>
+            <div class="col-6">
+                <div class="row">@Model.Processor</div>
+                <div class="row">@Model.Price,-</div>
+                <div class="row" style="color:forestgreen">
+                    Laptops available @Model.StockQuantity
+                </div>
+                <div class="row">
+                    <a class="btn btn-success text-white mt-5" style="width:100px"> <i class="bi bi-cart-plus"></i> Shop</a>
+                </div>
+                <div class="row">
+                    <div class="col-4"><a asp-action="Edit" asp-route-id="@Model.Id">Edit</a></div>
+                    <div class="col-4"><a asp-action="Details" asp-route-id="@Model.Id">Details</a></div>
+                    <div class="col-4"><a asp-action="Delete" asp-route-id="@Model.Id">Delete</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+   </div>
+@*</div>
+    <h4>Laptop</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StockQuantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StockQuantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductCategory)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Processor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Processor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ScreenSize)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ScreenSize)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InternalRAM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InternalRAM)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalStorageCapacity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalStorageCapacity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Touchscreen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Touchscreen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VideoCard)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VideoCard)
+        </dd>
+    </dl>
+</div>*@
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@

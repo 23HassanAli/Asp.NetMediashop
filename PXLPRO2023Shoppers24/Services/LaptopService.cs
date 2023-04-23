@@ -52,9 +52,12 @@ namespace PXLPRO2023Shoppers24.Services
             throw new NotImplementedException();
         }
 
-        public Task<Laptop> GetLaptopByIdAsync(int id)
+        public async Task<Laptop> GetLaptopByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var laptopDetails = await _appDbContext.Laptops
+                .FirstOrDefaultAsync(n => n.Id == id);
+
+            return laptopDetails;
         }
 
         public Task UpdateAsync(int id, Laptop entity)

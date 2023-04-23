@@ -15,7 +15,10 @@ namespace PXLPRO2023Shoppers24.Controllers
         {
             _laptopService = laptopService;
         }
-    
+        public IActionResult Test()
+        {
+            return View();  
+        }
         public async Task<IActionResult> Index()
         {
             var laptops = await _laptopService.GetAllAsync();
