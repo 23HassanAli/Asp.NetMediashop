@@ -37,7 +37,7 @@ namespace PXLPRO2023Shoppers24.Data.ViewModels
         public string Processor { get; set; }
         [Display(Name = "Screen Size")]
         [Required(ErrorMessage = "Secreen size is required")]
-        public double ScreenSize { get; set; }
+        public string ScreenSize { get; set; }
         [Display(Name = "Internal RAM")]
         [Required(ErrorMessage = "Internal RAM is required")]
         public int InternalRAM { get; set; }

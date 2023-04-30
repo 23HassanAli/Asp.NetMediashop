@@ -6,11 +6,11 @@ namespace PXLPRO2023Shoppers24.Services
 {
     public interface ILaptopService : IEntityBaseRepository<Laptop>
     {
-        Laptop this[string name] { get; }
-        Task<Laptop> GetLaptopByIdAsync(int id);
-
+        //Laptop this[string name] { get; }
+        //Task<Laptop> GetLaptopByIdAsync(int id);
+        //Task<IEnumerable<Laptop>> GetAllAsync();
         Task AddNewLaptopAsync(NewLaptopVM data);
-        Task UpdateLaptopAsync(NewLaptopVM data);
-        Task DeleteLaptopAsync(int id);
+        //Task UpdateLaptopAsync(Laptop data);
+        //Task DeleteLaptopAsync(int id);
     }
 }

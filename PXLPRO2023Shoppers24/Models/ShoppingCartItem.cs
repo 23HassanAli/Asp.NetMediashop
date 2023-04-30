@@ -7,11 +7,8 @@ namespace eTickets.Models
     {
         [Key]
         public int Id { get; set; }
-
-        public Product Product { get; set; }
+        public Laptop Laptop { get; set; }  
         public int Amount { get; set; }
-
-
         public string ShoppingCartId { get; set; }
     }
 }

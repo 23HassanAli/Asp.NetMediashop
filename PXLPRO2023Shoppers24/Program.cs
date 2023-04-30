@@ -1,4 +1,5 @@
 using HrApp.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PXLPRO2023Shoppers24.Data;
@@ -11,9 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
-
 builder.Services.AddScoped<ILaptopService, LaptopService>();
+builder.Services.AddScoped<ISmartphoneService, SmartphoneService>();    
 builder.Services.AddScoped<IdentityRepoInterface, IdentityRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => PXLPRO2023Shoppers24.Data.Cart.ShoppingCart.GetShoppingCart(sc));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
 builder.Services.Configure<IdentityOptions>(options => {
@@ -21,6 +24,12 @@ builder.Services.Configure<IdentityOptions>(options => {
     options.User.RequireUniqueEmail = true;
 });
 
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 
 builder.Services.AddAuthentication()
 .AddFacebook(fbOpts =>
@@ -64,12 +73,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-AppDbInializer.SeedUsersAndRolesAsync(app);
 AppDbInializer.Seed(app);
+AppDbInializer.SeedUsersAndRolesAsync(app).Wait();
 app.Run();

@@ -1,20 +1,19 @@
 ﻿using PXLPRO2023Shoppers24.Models.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Principal;
+using System.Xml.Linq;
 
-namespace PXLPRO2023Shoppers24.Models
+namespace PXLPRO2023Shoppers24.Data.ViewModels
 {
-    public class Gsm
+    public class NewSmartphoneVM
     {
         [Key]
-        public int GsmId { get; set; }
+        public int SmartphoneId { get; set; }
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
         [Display(Name = "Price")]
         [Required(ErrorMessage = "Price is required")]
-        
+
         public double Price { get; set; }
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Description is required")]
@@ -45,13 +44,13 @@ namespace PXLPRO2023Shoppers24.Models
         public string OperatingSystem { get; set; }
         [Display(Name = "Height")]
         [Required(ErrorMessage = "Height is required")]
-        public double Height { get; set; }
+        public string Height { get; set; }
         [Display(Name = "Width")]
         [Required(ErrorMessage = "Width is required")]
-        public double Width { get; set; }
+        public string Width { get; set; }
         [Display(Name = "Weight")]
         [Required(ErrorMessage = "Weight is required")]
-        public double Weight { get; set; }
+        public string Weight { get; set; }
         [Display(Name = "Color")]
         [Required(ErrorMessage = "Color is required")]
         public string Color { get; set; }
@@ -70,8 +69,8 @@ namespace PXLPRO2023Shoppers24.Models
         [Display(Name = "Total number of megapixles")]
         [Required(ErrorMessage = "Total number of megapixles is required")]
         public int TotalNumberOfMegapixels { get; set; }
-
-
-
+        [Display(Name = "Screen Size")]
+        [Required(ErrorMessage = "Screen size is required")]
+        public string ScreenSize { get; set; }
     }
 }

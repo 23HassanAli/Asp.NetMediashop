@@ -40,8 +40,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwdG9wXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Laptop/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwdG9wXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Laptop/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwdG9wXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Laptop/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwdG9wXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Laptop/Index.cshtml]
@@ -50,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Laptop/Test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwdG9wXFRlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Order/ShoppingCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcU2hvcHBpbmdDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Shared/Components/ShoppingCartSummary/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvcHBpbmdDYXJ0U3VtbWFyeVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Shared/Error.cshtml]
@@ -62,6 +78,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Smartphone/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU21hcnRwaG9uZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Smartphone/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU21hcnRwaG9uZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Smartphone/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU21hcnRwaG9uZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Smartphone/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU21hcnRwaG9uZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/TestNav/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdE5hdlxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/_ViewImports.cshtml]

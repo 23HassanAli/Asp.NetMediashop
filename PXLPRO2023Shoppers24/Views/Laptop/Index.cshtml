@@ -22,7 +22,7 @@
                     Laptops available @item.StockQuantity
                 </div>
                 <div class="row">
-                    <a class="btn btn-success text-white mt-5" style="width:100px"> <i class="bi bi-cart-plus"></i> Shop</a>
+                    <a class="btn btn-success text-white mt-5" asp-controller="Order" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id" style="width:100px"> <i class="bi bi-cart-plus"></i> Shop</a>
                 </div>
                 <div class="row">
                     <div class="col-4"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>

@@ -12,7 +12,7 @@ namespace PXLPRO2023Shoppers24.Controllers
         {
             _logger = logger;
         }
-
+       
         public IActionResult Index()
         {
             return View();

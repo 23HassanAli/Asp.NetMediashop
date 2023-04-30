@@ -4,26 +4,47 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<a asp-controller="laptop" asp-action="index" class="" style="color:forestgreen"> <i class='bi bi-angle-left' ></i>Back</a>
 
 <div class="container-fluid">
     <div class="col">
         <div class="row">
-            <h1>@Model.Name</h1>
+            <h1 style="color:blueviolet;font-size:30px">@Model.Name</h1>
         </div>
         <div class="row">
             <div class="col-1">
                 @Model.Brand
             </div>
             <div class="col-5">
-                <img src="@Model.ImageURL" alt="@Model.Name"/>
+                <img src="@Model.ImageURL" alt="@Model.Name" style="width:400px" />
             </div>
             <div class="col-6">
-                <div class="row">@Model.Processor</div>
-                <div class="row">@Model.Price,-</div>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Processor)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Processor)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Price),-
+                    </dd>
+                    <dt class="col-sm-2">
+                        Available laptops 
+                    </dt>
+                    <dd class="col-sm-10" style="color:forestgreen">
+                        @Html.DisplayFor(model => model.StockQuantity)
+                    </dd>
+                </dl>
+@*
+                <div class="row">Procsessor @Model.Processor</div>
+                <div class="row">Price      @Model.Price,-</div>
                 <div class="row" style="color:forestgreen">
-                    Laptops available @Model.StockQuantity
-                </div>
+                    Laptops available    @Model.StockQuantity
+                </div>*@
                 <div class="row">
                     <a class="btn btn-success text-white mt-5" style="width:100px"> <i class="bi bi-cart-plus"></i> Shop</a>
                 </div>
@@ -34,11 +55,16 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
+            <h3>Description</h3>
+            <p>
+                @Model.Description
+            </p>
         </div>
-   </div>
-@*</div>
-    <h4>Laptop</h4>
+    </div>
+</div>
+
+@*  <h4>Laptop</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">

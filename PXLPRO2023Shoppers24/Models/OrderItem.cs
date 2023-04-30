@@ -11,9 +11,12 @@ namespace PXLPRO2023Shoppers24.Models
         public int Amount { get; set; }
         public double Price { get; set; }
 
-        public int ProductId { get; set; }
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
+        public int LaptopId { get; set; }
+        [ForeignKey("LaptopId")]
+        public Laptop Laptop { get; set; }
+        //public int SmartphoneId { get; set; }
+        //[ForeignKey("SmartphoneId")]
+        //public Smartphone Smartphone { get; set; }
 
         public int OrderId { get; set; }
         [ForeignKey("OrderId")]

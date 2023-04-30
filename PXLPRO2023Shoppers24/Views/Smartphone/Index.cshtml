@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PXLPRO2023Shoppers24.Models.Smartphone>
+
+@{
+    ViewData["Title"] = "Smartphones";
+}
+<h1>All Smartphones</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@foreach (var item in Model)
+{
+    <div class="container border mt-5">
+        <div class="row mx-auto p-3">
+            <div class="col-4">
+                <img src="@item.ImageURL" style="width:180px;" />
+            </div>
+            <div class="col-8">
+                <div class="row" style="color:blueviolet;font-weight:bolder">@item.Name</div>
+                <div class="row" style="color:slategrey">@item.ScreenSize inches | @item.IntroducedYear | @item.InternalRAM GB RAM</div>
+                <div class="row" style="color:black;font-weight:bolder">@item.Price,-</div>
+                <div class="row" style="color:forestgreen">
+                    Smartphones available @item.StockQuantity
+                </div>
+                <div class="row">
+                    <a class="btn btn-success text-white mt-5" style="width:100px"> <i class="bi bi-cart-plus"></i> Shop</a>
+                </div>
+                <div class="row">
+                    <div class="col-4"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>
+                    <div class="col-4"><a asp-action="Details" asp-route-id="@item.Id">Details</a></div>
+                    <div class="col-4"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
