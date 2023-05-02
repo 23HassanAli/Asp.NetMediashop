@@ -17,16 +17,59 @@ else
 
     @*User profile section*@
     <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-bagde"></i> @if(@UserManager.GetUserName(User).Contains("Google")){ @UserManager.GetUserName(User).Split("_")[0] }
+            else if (@UserManager.GetUserName(User).Contains("Facebook"))
+            {
+                @UserManager.GetUserName(User).Split("_")[0]
+            }
+            else
+            {
+                 @UserManager.GetUserName(User)
+            }
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="UserClaim">Account</a> </li>
+            <li><a class="dropdown-item" asp-controller="Orders" asp-action="Index" ><i class="bi bi-list"></i> Orders</a></li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users" ><i class="bi bi-people"></i> Users</a>
+                </li>
+            }
+            <li>
+                <form asp-controller="Account" asp-action="Logout">
+                    <button class="btn btn-outline-danger my-2 my-sm-0 dropdown-item">
+                        <i class="bi bi-box-arrow-in-right"></i> Log out
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    @*  <div>
+        <i class="bi bi-person-bagde"></i>@UserManager.GetUserName(User)
+        <a class="" asp-controller="Account" asp-action="UserClaim">Account</a>
+        <a class="" asp-controller="Orders" asp-action="Index">
+            <i class="bi bi-list"></i> Orders
+        </a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                <i class="bi bi-people"></i> Users
+            </a>
+        }
+    </div>*@
+    @* <div class="dropdown">
         <a class="btn btn-outline-success dropdown-toggle" role="button" id="profile-btn" data-bs-toggle="dropdown"
        aria-expanded="false">
             <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
         </a>
         <div class="dropdown-menu" aria-labelledby="profile-btn">
+            <a class="dropdown-item" asp-controller="Account" asp-action="Setting">Account</a>
 
             <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
                 <i class="bi bi-list"></i> Orders
             </a>
-
 
             @if (User.IsInRole("Admin"))
             {
@@ -35,11 +78,21 @@ else
                 </a>
             }
         </div>
-    </div>
-    <span style="padding: 5px;"></span>
+    </div>*@
+    @* <span style="padding: 5px;"></span>
     <form asp-controller="Account" asp-action="Logout">
         <button class="btn btn-outline-danger my-2 my-sm-0">
             <i class="bi bi-box-arrow-in-right"></i> Log out
         </button>
-    </form>
+    </form>*@
+}
+
+@section Scripts{
+    <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js">
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown()
+        });
+
+    </script>
+
 }

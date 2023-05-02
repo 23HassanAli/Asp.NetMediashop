@@ -1,0 +1,17 @@
+﻿@model ApplicationUser
+<div class="m-3"><span class="border border-success m-2">Welkom @Model.UserName</span></div>
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.UserName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.UserName)
+    </dd>
+</dl>

@@ -10,13 +10,13 @@
         <div class="col-md-5">
             <div class="shadow p-3 mb-5 bg-light rounded p-4">
                 <h3 class="mb-4 text-center fs-1">Log in to your account</h3>
-                <form class="mb-3">
-                    <div class="form-floating mb-3">
-                        <label asp-for="EmailAddress" class="form-label"></label>
-                        <input asp-for="EmailAddress" class="form-control rounded-0" />
+                <form asp-action="Login" class="mb-3">
+                    <div class="form-group mb-3">
+                        <label asp-for="EmailAddress" class="control-label"></label>
+                        <input asp-for="EmailAddress" class="form-control" placeholder="Email" />
                         <span asp-validation-for="EmailAddress" class="text-danger"></span>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-group mb-3">
                         <label asp-for="Password" class="control-label"></label>
                         <input asp-for="Password" class="form-control rounded-0" />
                         <span asp-validation-for="Password" class="text-danger"></span>

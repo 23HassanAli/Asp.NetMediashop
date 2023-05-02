@@ -12,9 +12,11 @@ namespace PXLPRO2023Shoppers24.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IdentityRepoInterface _identityRepoInterface;
-        public AccountController(IdentityRepoInterface identityRepoInterface)
+        public AccountController(IdentityRepoInterface identityRepoInterface, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _identityRepoInterface = identityRepoInterface;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index()
@@ -23,7 +25,7 @@ namespace PXLPRO2023Shoppers24.Controllers
         }
         public IActionResult Login() => View(new LoginVM());
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM loginVM)
+        public async Task<IActionResult> LoginAsync(LoginVM loginVM)
         {
             if (ModelState.IsValid)
             {
@@ -43,7 +45,7 @@ namespace PXLPRO2023Shoppers24.Controllers
                 }
             }
             return View(loginVM);
-           
+
         }
         public IActionResult Register() => View(new RegisterVm());
         [HttpPost]
@@ -62,7 +64,7 @@ namespace PXLPRO2023Shoppers24.Controllers
                 }
             }
             return View(registerVm);
-   
+
         }
 
         #region Facebook
@@ -94,14 +96,14 @@ namespace PXLPRO2023Shoppers24.Controllers
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.ExternalLoginSignInAsync(externalLoginInfo.LoginProvider, externalLoginInfo.ProviderKey, false);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Test");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
                 var identityResult = await CreateIdentityUserAsync(externalLoginInfo);
                 if (identityResult.Succeeded)
                 {
-                    return RedirectToAction("Index", "Test");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View("login");
@@ -186,16 +188,21 @@ namespace PXLPRO2023Shoppers24.Controllers
                 var identityResult = await CreateIdenntityUserAsync(externalLoginInfo, model);
                 if (identityResult.Succeeded)
                 {
-                    return View("Login");
+                    return RedirectToAction("Index", "Home");
                 }
             }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(model);//goto DuendeResponse View
         }
-          private async Task<IdentityResult>  CreateIdenntityUserAsync(ExternalLoginInfo info, UserVM model)
+        private async Task<IdentityResult> CreateIdenntityUserAsync(ExternalLoginInfo info, UserVM model)
         {
             ApplicationUser user = GetIdentityUser(info, model);
             IdentityResult identityResult = await _userManager.CreateAsync(user);
-            if(identityResult.Succeeded)
+            if (identityResult.Succeeded)
             {
                 identityResult = await _userManager.AddLoginAsync(user, info);
                 if (identityResult.Succeeded)
@@ -214,12 +221,15 @@ namespace PXLPRO2023Shoppers24.Controllers
         }
         private ApplicationUser GetIdentityUser(ExternalLoginInfo info, UserVM model)
         {
+            string fullname = model.UserName;
             string userName = $"{model.UserName}_{info.LoginProvider}_{info.ProviderKey}";
             ApplicationUser user = new ApplicationUser(userName)
             {
-                Email = model.Email
+                Email = model.Email,
+                FullName = fullname,
+                UserName = userName 
             };
-            return user;    
+            return user;
         }
         #endregion
 
@@ -231,7 +241,9 @@ namespace PXLPRO2023Shoppers24.Controllers
             string email = info.Principal.FindFirst(ClaimTypes.Email).Value;
             ApplicationUser user = new ApplicationUser(userName)
             {
-                Email = email
+                Email = email,
+                FullName = userName,
+                UserName = userName,        
             };
             return user;
         }
@@ -261,5 +273,36 @@ namespace PXLPRO2023Shoppers24.Controllers
             return identityResult;
         }
 
+        #region logout
+        public async Task<IActionResult> LogoutAsync()
+        {
+            var reuslt = await _identityRepoInterface.LogoutAsync();
+            if (reuslt.Succeeded)
+            {
+                return RedirectToAction("Login", "Account");
+
+            }
+            return RedirectToAction("Index", "Home");
+
+        }
+        #endregion
+        #region Identity
+        [HttpGet]
+        public IActionResult Identity()
+        {
+            var identityViewModel = new IdentityViewModel();
+            identityViewModel.Users = _userManager.Users.ToList();  
+            return View(identityViewModel);
+
+        }
+        #endregion
+        [HttpGet] 
+        public async Task<IActionResult> UserClaimAsync() 
+        { 
+            var user = User; 
+            var identityUser = await _userManager.GetUserAsync(user); 
+            if (identityUser != null) return View("UserClaim", identityUser); 
+            return View("Login"); 
+        }
     }
 }

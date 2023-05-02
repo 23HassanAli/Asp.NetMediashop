@@ -7,5 +7,6 @@ namespace PXLPRO2023Shoppers24.Services
         Task<IdentityRepositoryResult> LoginAsync(LoginVM loginData);
         Task<IdentityRepositoryResult> RegisterAsync(
         RegisterVm registerData);
+        Task<IdentityRepositoryResult> LogoutAsync();
     }
 }

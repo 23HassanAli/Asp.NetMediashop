@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Account/Identity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJZGVudGl0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,6 +34,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Account/RegisterCompleted.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckNvbXBsZXRlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Account/Setting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZXR0aW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Account/UserClaim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyQ2xhaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/r59059/source/repos/PXLPRO2023Shoppers24/PXLPRO2023Shoppers24/Views/Home/Index.cshtml]

@@ -33,6 +33,14 @@ namespace HrApp.Services
             return result;
         }
 
+        public async Task<IdentityRepositoryResult> LogoutAsync()
+        {
+            var result = new IdentityRepositoryResult();
+            await _signInManager.SignOutAsync();
+            result.Succeeded = true;
+            return result;
+        }
+
         public async Task<IdentityRepositoryResult> RegisterAsync(RegisterVm registerData)
         {
             var result = new IdentityRepositoryResult();
