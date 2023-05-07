@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PXLPRO2023Shoppers24.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\Media_Shop-transformed.png",
+      "PackagePath": "staticwebassets\\Media_Shop-transformed.png"
+    },
+    {
       "Id": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,6 +19,10 @@
     {
       "Id": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\laptop-2227170.png",
+      "PackagePath": "staticwebassets\\laptop-2227170.png"
     },
     {
       "Id": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\lib\\bootstrap\\LICENSE",

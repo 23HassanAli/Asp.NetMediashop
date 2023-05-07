@@ -1,11 +1,32 @@
-﻿@{
+﻿@model IEnumerable<PXLPRO2023Shoppers24.Models.Laptop>
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>
-        User id : @ViewData["UserId"]
-    </p>
+<p>
+    User id : @ViewData["UserId"]
+</p>
+<div class="container">
+    <div class="row" style="background:orange">
+        <div class="col-6" style="padding:25px">
+            <div class="flex-column">
+                <h1>Discover latest</h1>
+                <p> The laptop boasts powerful processing capabilities and ample storage, making it a great choice for multi-tasking and storing large files such as documents, photos, and videos. Its integrated graphics and high-quality audio make it ideal for enjoying movies, music, and games. The keyboard is comfortable and responsive with backlit keys for easy typing in low-light settings. </p>
+                <button class="btn btn-success">Discover</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <img src="~/laptop-2227170.png" style="width:500px"/>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Featured Laptops</h2>
+    </div>
+    <div class="row">
+        @await Component.InvokeAsync("FeaturedLaptops")
+    </div>
 </div>
+
+
+
+
+

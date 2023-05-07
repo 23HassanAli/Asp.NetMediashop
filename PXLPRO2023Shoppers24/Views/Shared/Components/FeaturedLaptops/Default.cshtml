@@ -1,0 +1,19 @@
+﻿@model IEnumerable<LaptopCardViewModel>
+
+    @foreach(var item in Model)
+{
+    <div class="col-2 m-3">
+        <p class="" style="text-align:right">@item.Brand</p>
+        <p>@item.Name</p>
+        <p>@item.Price</p>
+        <img src="@item.ImageURL" style="width:150px" />
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-success" asp-route-id="@item.Id" >Shop</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-secondary" asp-route-id="@item.Id" asp-controller="Laptop" asp-action="Details">View</a>
+            </div>
+        </div>
+    </div>
+}

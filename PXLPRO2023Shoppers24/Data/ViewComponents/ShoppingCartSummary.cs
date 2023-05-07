@@ -3,6 +3,7 @@ using PXLPRO2023Shoppers24.Data.Cart;
 
 namespace PXLPRO2023Shoppers24.Data.ViewComponents
 {
+    [ViewComponent(Name = "ShoppingCartSummary")]
     public class ShoppingCartSummary : ViewComponent
     {
         private readonly ShoppingCart _shopppingCart;

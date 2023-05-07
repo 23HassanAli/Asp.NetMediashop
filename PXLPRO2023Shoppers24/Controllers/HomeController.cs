@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using PXLPRO2023Shoppers24.Models;
+using PXLPRO2023Shoppers24.Services;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PXLPRO2023Shoppers24.Controllers
 {
@@ -9,17 +12,19 @@ namespace PXLPRO2023Shoppers24.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
+        private readonly ILaptopService _laptopService;
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, ILaptopService service)
         {
             _logger = logger;
             _userManager = userManager;
+            _laptopService = service;
         }
        
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewData["UserId"] = _userManager.GetUserId(this.User);
-            return View();
+            var laptops = await _laptopService.GetAllAsync();
+            return View(laptops);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

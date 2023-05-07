@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HfgiAbhNJEZwdMqTil/ie+bD8PTA0BM3NlOzGVRjrZ0=",
+  "Hash": "vNqeAjY2ryobuXCsSjyiTk6YXxfRdeWzy3oixTlVM0Y=",
   "Source": "PXLPRO2023Shoppers24",
   "BasePath": "_content/PXLPRO2023Shoppers24",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\laptop-2227170.png",
+      "SourceId": "PXLPRO2023Shoppers24",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\",
+      "BasePath": "_content/PXLPRO2023Shoppers24",
+      "RelativePath": "laptop-2227170.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\laptop-2227170.png"
     },
     {
       "Identity": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -1069,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\Media_Shop-transformed.png",
+      "SourceId": "PXLPRO2023Shoppers24",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\r59059\\source\\repos\\PXLPRO2023Shoppers24\\PXLPRO2023Shoppers24\\wwwroot\\",
+      "BasePath": "_content/PXLPRO2023Shoppers24",
+      "RelativePath": "Media_Shop-transformed.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Media_Shop-transformed.png"
     }
   ]
 }

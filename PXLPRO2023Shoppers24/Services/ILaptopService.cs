@@ -8,7 +8,7 @@ namespace PXLPRO2023Shoppers24.Services
     {
         //Laptop this[string name] { get; }
         //Task<Laptop> GetLaptopByIdAsync(int id);
-        //Task<IEnumerable<Laptop>> GetAllAsync();
+        Task<IEnumerable<Laptop>> GetAllAsync();
         Task AddNewLaptopAsync(NewLaptopVM data);
         //Task UpdateLaptopAsync(Laptop data);
         //Task DeleteLaptopAsync(int id);

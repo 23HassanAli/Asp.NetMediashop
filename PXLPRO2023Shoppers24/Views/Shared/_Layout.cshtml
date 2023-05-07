@@ -12,18 +12,17 @@
 
 </head>
 <body>
+    <div class="d-flex justify-content-center"></div>
     <header>
         <!-- Bootstrap code-->
         <!-- -->
-
-        <div class="d-flex .bg-light text-dark p-2">
+        <div class="d-flex align-items-start .bg-light text-dark p-2">
             <div class="navbar-brand flex-grow-1 ml-2">
-                <a class="btn btn-block text-dark border-white" asp-controller="Home" asp-action="Index">Media Shop </a>
+                <a class="btn btn-block text-dark border-white" asp-controller="Home" asp-action="Index"> <img src="~/Media_Shop-transformed.png" style="width:130px" /></a>
                 <a class="btn btn-block text-dark border-white" asp-controller="Laptop" asp-action="Index">Laptops</a>
-                <a class="btn btn-block text-dark border-white" asp-controller="Smartphone" asp-action="Index">Smartphones</a>
             </div>
-            <ul class="navbar-nav">
-                @await Component.InvokeAsync("ShoppingCartSummary")
+           
+            <ul class="navbar-nav" style="width:37px;margin-top:6px">
             </ul>
             <span>
                 <partial name="_LoginPartial" />
