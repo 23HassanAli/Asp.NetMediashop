@@ -18,7 +18,7 @@ namespace PXLPRO2023Shoppers24.Data.ViewComponents
             var items = await _laptopService.GetAllAsync();
             List<LaptopCardViewModel> laptops = new List<LaptopCardViewModel>();
 
-            foreach (var item in items.Take(3))
+            foreach (var item in items.Take(4))
             {
                 var featuredLaptops = new LaptopCardViewModel(item);
                 laptops.Add(featuredLaptops);

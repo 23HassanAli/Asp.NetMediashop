@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PXLPRO2023Shoppers24", "PXL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duende.IdentityServer.Demo", "..\..\..\..\OneDrive - PXL\2PROb Semester 2\C# web 2\Hoofdstuk 3 - External Authentication\DuendeIdentityServer\DuendeIdentityServer\Duende.IdentityServer.Demo.csproj", "{59EFE7B6-A544-4187-8C70-63A79602E005}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaShopApi", "..\..\..\..\C# Web 2 New\Project Apis\MediaShopApi\MediaShopApi\MediaShopApi.csproj", "{29270097-BD53-4795-A1CC-E4C38CBCD117}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{59EFE7B6-A544-4187-8C70-63A79602E005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59EFE7B6-A544-4187-8C70-63A79602E005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59EFE7B6-A544-4187-8C70-63A79602E005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29270097-BD53-4795-A1CC-E4C38CBCD117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29270097-BD53-4795-A1CC-E4C38CBCD117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29270097-BD53-4795-A1CC-E4C38CBCD117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29270097-BD53-4795-A1CC-E4C38CBCD117}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

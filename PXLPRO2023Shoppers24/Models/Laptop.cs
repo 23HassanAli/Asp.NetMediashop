@@ -11,9 +11,6 @@ namespace PXLPRO2023Shoppers24.Models
     {
         [Key]
         public int Id  { get; set; }
-        [ForeignKey("ProductId")]
-        public int ProductId { get; set; }
-   
         [Display(Name = "Laptop Name")]
         [Required(ErrorMessage = "Laptop Name is required")]
         public string Name { get; set; }

@@ -14,22 +14,25 @@
 <body>
     <div class="d-flex justify-content-center"></div>
     <header>
-        <!-- Bootstrap code-->
-        <!-- -->
-        <div class="d-flex align-items-start .bg-light text-dark p-2">
-            <div class="navbar-brand flex-grow-1 ml-2">
-                <a class="btn btn-block text-dark border-white" asp-controller="Home" asp-action="Index"> <img src="~/Media_Shop-transformed.png" style="width:130px" /></a>
-                <a class="btn btn-block text-dark border-white" asp-controller="Laptop" asp-action="Index">Laptops</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="~/Media_Shop-transformed.png" alt="Media Shop Logo" style="max-width: 130px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Laptop")">Laptops</a>
+                        </li>
+                    </ul>
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
-           
-            <ul class="navbar-nav" style="width:37px;margin-top:6px">
-            </ul>
-            <span>
-                <partial name="_LoginPartial" />
-            </span>
-          
-        </div>
-
+        </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

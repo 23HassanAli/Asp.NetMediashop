@@ -9,25 +9,37 @@
 </p>
 @foreach (var item in Model)
 {
-    <div class="container border mt-5">
+    <div class="container border my-5">
         <div class="row mx-auto p-3">
-            <div class="col-4">
-                <img src="@item.ImageURL" style="width:300px;" />
+            <div class="col-md-4">
+                <img src="@item.ImageURL" class="img-fluid rounded" alt="laptop image">
             </div>
-            <div class="col-8">
-                <div class="row" style="color:blueviolet;font-weight:bolder">@item.Name</div>
-                <div class="row" style="color:slategrey">@item.ScreenSize inches | @item.Processor | @item.InternalRAM GB RAM</div>
-                <div class="row" style="color:black;font-weight:bolder">@item.Price,-</div>
-                <div class="row" style="color:forestgreen">
-                    Laptops available @item.StockQuantity
+            <div class="col-md-8">
+                <div class="row mb-4">
+                    <h2 class="text-primary font-weight-bold">@item.Name</h2>
+                </div>
+                <div class="row mb-4">
+                    <p class="text-secondary">@item.ScreenSize inches | @item.Processor | @item.InternalRAM GB RAM</p>
+                </div>
+                <div class="row mb-4">
+                    <h3 class="text-dark font-weight-bold">@item.Price,-</h3>
+                </div>
+                <div class="row mb-4">
+                    <p class="text-success font-weight-bold">In Stock: @item.StockQuantity</p>
                 </div>
                 <div class="row">
-                    <a class="btn btn-success text-white mt-5" asp-controller="Order" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id" style="width:100px"> <i class="bi bi-cart-plus"></i> Shop</a>
+                    <a href="@Url.Action("AddItemToShoppingCart", "Order", new { id = item.Id })" class="btn btn-success btn-lg rounded-pill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
                 </div>
-                <div class="row">
-                    <div class="col-4"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></div>
-                    <div class="col-4"><a asp-action="Details" asp-route-id="@item.Id">Details</a></div>
-                    <div class="col-4"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></div>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-primary btn-sm">Edit</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-secondary btn-sm">Details</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
