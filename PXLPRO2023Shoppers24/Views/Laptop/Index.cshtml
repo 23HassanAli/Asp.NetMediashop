@@ -4,9 +4,13 @@
     ViewData["Title"] = "Laptops";
 }
 <h1>All laptops</h1>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
 @foreach (var item in Model)
 {
     <div class="container border my-5">
@@ -16,7 +20,7 @@
             </div>
             <div class="col-md-8">
                 <div class="row mb-4">
-                    <h2 class="text-primary font-weight-bold">@item.Name</h2>
+                    <h2 class="text-primary font-weight-bold"> <a href="@Url.Action("Details", new { id = item.Id })"> @item.Name</a></h2>
                 </div>
                 <div class="row mb-4">
                     <p class="text-secondary">@item.ScreenSize inches | @item.Processor | @item.InternalRAM GB RAM</p>
@@ -27,19 +31,33 @@
                 <div class="row mb-4">
                     <p class="text-success font-weight-bold">In Stock: @item.StockQuantity</p>
                 </div>
-                <div class="row">
-                    <a href="@Url.Action("AddItemToShoppingCart", "Order", new { id = item.Id })" class="btn btn-success btn-lg rounded-pill"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                @if (item.StockQuantity > 0)
+                {
+                    <div class="row">
+                        <a href="@Url.Action("AddItemToShoppingCart", "Order", new { id = item.Id })" class="btn btn-success btn-lg rounded-pill" style="width:200px"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                    </div>
+                }
+                else
+                {
+                     <div class="row">
+                        <a class="btn btn-success btn-lg rounded-pill disabled" style="width:200px"><i class="bi bi-cart-plus"></i> Add to Cart</a>
                 </div>
+                
+                }
+
                 <div class="row mt-4">
-                    <div class="col-md-4">
-                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-secondary btn-sm">Details</a>
-                    </div>
-                    <div class="col-md-4">
-                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
-                    </div>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <div class="col-md-4">
+                            <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-primary btn-sm">Edit</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-secondary btn-sm">Details</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

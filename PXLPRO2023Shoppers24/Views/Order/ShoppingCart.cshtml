@@ -54,6 +54,21 @@
                 </tr>
             </tfoot>
             </table>
+
+        <div class="text-right">
+            <div class="btn-group">
+
+                    <a class="btn btn-outline-primary @(Model.ShoppingCart.ShoppingCartItems.Count() > 0 ? "" : "disabled") " asp-action="CompleteOrder">
+                        Complete order
+                    </a>
+                
+                <div id="paypal-btn"></div>
+                <span style="padding:5px"></span>
+                <a class="btn btn-outline-success" asp-controller="Laptop" asp-action="Index">
+                    Add more items
+                </a>
+            </div>
+        </div>
     </div>
 
 </div>

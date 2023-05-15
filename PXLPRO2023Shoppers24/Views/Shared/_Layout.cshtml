@@ -23,12 +23,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav" style="list-style: none;">
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Index", "Laptop")">Laptops</a>
                         </li>
                     </ul>
                     @await Component.InvokeAsync("ShoppingCartSummary")
+
                     <partial name="_LoginPartial" />
                 </div>
             </div>

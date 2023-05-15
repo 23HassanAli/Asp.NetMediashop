@@ -15,6 +15,7 @@ options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"
 builder.Services.AddScoped<ILaptopService, LaptopService>();
 builder.Services.AddScoped<ISmartphoneService, SmartphoneService>();    
 builder.Services.AddScoped<IdentityRepoInterface, IdentityRepository>();
+builder.Services.AddScoped<IOrdersService, OrderService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => PXLPRO2023Shoppers24.Data.Cart.ShoppingCart.GetShoppingCart(sc));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();

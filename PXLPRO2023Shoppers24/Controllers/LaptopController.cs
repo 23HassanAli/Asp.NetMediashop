@@ -8,7 +8,7 @@ using System.Data;
 
 namespace PXLPRO2023Shoppers24.Controllers
 {
-
+    [Authorize(Roles = "Admin")]
     public class LaptopController : Controller
     {
         private readonly ILaptopService _laptopService;
@@ -16,12 +16,14 @@ namespace PXLPRO2023Shoppers24.Controllers
         {
             _laptopService = laptopService;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var laptops = await _laptopService.GetAllAsync();  
             return View(laptops);
 
         }
+        [AllowAnonymous]    
         public async Task<IActionResult> Details(int id)
         {
             var laptopDetail = await _laptopService.GetByIdAsync(id);

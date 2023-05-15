@@ -2,16 +2,16 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<p>
+@*<p>
     User id : @ViewData["UserId"]
-</p>
+</p>*@
 <div class="container">
     <div class="row" style="padding: 50px;">
         <div class="col-md-6 d-flex align-items-center">
             <div class="text-dark">
                 <h1 class="display-4 mb-4">Discover the Latest</h1>
                 <p class="lead mb-4">Experience the power of our new laptop, with lightning-fast processing and ample storage for all your important files. Enjoy stunning graphics and crystal-clear audio for movies, music, and games. And with a comfortable backlit keyboard, you can work or play anytime, anywhere.</p>
-                <a href="#" class="btn btn-success btn-lg">Learn More</a>
+                <a asp-controller="Laptop" asp-action="Index" class="btn btn-success btn-lg">Learn More</a>
             </div>
         </div>
         <div class="col-md-6">

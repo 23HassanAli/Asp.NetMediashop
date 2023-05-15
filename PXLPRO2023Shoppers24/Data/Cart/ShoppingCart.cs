@@ -67,12 +67,12 @@ namespace PXLPRO2023Shoppers24.Data.Cart
             return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Include(n => n.Laptop).ToList());
         }
 
-        //public async Task ClearShoppingCartAsync()
-        //{
-        //    var items = await _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).ToListAsync();
-        //    _context.ShoppingCartItems.RemoveRange(items);
-        //    await _context.SaveChangesAsync();
-        //}
+        public async Task ClearShoppingCartAsync()
+        {
+            var items = await _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).ToListAsync();
+            _context.ShoppingCartItems.RemoveRange(items);
+            await _context.SaveChangesAsync();
+        }
 
 
     }
