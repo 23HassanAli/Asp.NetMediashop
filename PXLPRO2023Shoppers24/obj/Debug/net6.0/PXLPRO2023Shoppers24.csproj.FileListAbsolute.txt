@@ -277,3 +277,7 @@ C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug
 C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\MediaShopClassLibrary.dll
+C:\Users\r59059\source\repos\PXLPRO2023Shoppers24\PXLPRO2023Shoppers24\bin\Debug\net6.0\MediaShopClassLibrary.pdb

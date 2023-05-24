@@ -394,8 +394,9 @@ namespace PXLPRO2023Shoppers24.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductCategory")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductCategory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ScreenSize")
                         .IsRequired()

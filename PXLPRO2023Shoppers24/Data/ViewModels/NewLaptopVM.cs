@@ -6,8 +6,7 @@ namespace PXLPRO2023Shoppers24.Data.ViewModels
 {
     public class NewLaptopVM
     {
-        [Key]
-        public int LaptopId { get; set; }
+
         [Display(Name = "Laptop Name")]
         [Required(ErrorMessage = "Laptop Name is required")]
         public string Name { get; set; }
@@ -25,7 +24,7 @@ namespace PXLPRO2023Shoppers24.Data.ViewModels
         public string ImageURL { get; set; }
         [Display(Name = "Product Category ")]
         [Required(ErrorMessage = "Product category is required")]
-        public ProductCategory ProductCategory { get; set; }
+        public string ProductCategory { get; set; }
         [Display(Name = "Brand")]
         [Required(ErrorMessage = "Brand is required")]
         public string Brand { get; set; }

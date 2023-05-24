@@ -28,6 +28,12 @@ else
                 }
             </li>
             <li>
+                @if(User.IsInRole("Admin"))
+                {
+                    <a class="dropdown-item" href="@Url.Action("Laptops", "Laptop")"><i class="bi bi-people"></i> Laptops</a>
+                }
+            </li>
+            <li>
                 <form asp-controller="Account" asp-action="Logout" class="dropdown-item">
                     <button type="submit" class="btn btn-primary-outline"><i class="bi bi-box-arrow-in-right"></i> Log out</button>
                 </form>

@@ -5,6 +5,7 @@ using PXLPRO2023Shoppers24.Data.ViewModels;
 using PXLPRO2023Shoppers24.Models;
 using PXLPRO2023Shoppers24.Services;
 using System.Data;
+using System.Security.Claims;
 
 namespace PXLPRO2023Shoppers24.Controllers
 {
@@ -12,24 +13,48 @@ namespace PXLPRO2023Shoppers24.Controllers
     public class LaptopController : Controller
     {
         private readonly ILaptopService _laptopService;
-        public LaptopController(ILaptopService laptopService)
+        private readonly IStockApiRepository _stockRepository;
+        public LaptopController(ILaptopService laptopService, IStockApiRepository stockRepository)
         {
             _laptopService = laptopService;
+            _stockRepository = stockRepository;
         }
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var laptops = await _laptopService.GetAllAsync();  
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
+
+
+            var laptops = await _laptopService.GetAllAsync();
+            if (laptops == null) return View();
             return View(laptops);
 
         }
-        [AllowAnonymous]    
+        public async Task<IActionResult> Laptops()
+        {
+            var stockLaptops = await _stockRepository.GetAll();
+            var laptops = await _laptopService.GetAllAsync();
+            var laptopList = new List<Laptop>();
+            foreach (var l in stockLaptops)
+            {
+                foreach (var item in laptops)
+                {
+                    if (item.Id == int.Parse(l.LaptopId))
+                    {
+                        laptopList.Add(item);
+                    }
+                }
+            }
+            return View(laptopList);
+
+        }
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var laptopDetail = await _laptopService.GetByIdAsync(id);
             return View(laptopDetail);
         }
-
         //GET: Laptop/Create
         public async Task<IActionResult> Create()
         {
@@ -43,6 +68,9 @@ namespace PXLPRO2023Shoppers24.Controllers
                 return View(laptop);
             }
             await _laptopService.AddNewLaptopAsync(laptop);
+            var allLaptops = await _laptopService.GetAllAsync();
+            var thisLaptop = allLaptops.Last();
+            _stockRepository.Add(thisLaptop);
             return RedirectToAction(nameof(Index));
         }
 

@@ -28,7 +28,7 @@ namespace PXLPRO2023Shoppers24.Models
         public string ImageURL { get; set; }
         [Display(Name = "Product Category ")]
         [Required(ErrorMessage = "Product category is required")]
-        public ProductCategory ProductCategory { get; set; }
+        public string ProductCategory { get; set; }
         [Display(Name = "Brand")]
         [Required(ErrorMessage = "Brand is required")]
         public string Brand { get; set; }

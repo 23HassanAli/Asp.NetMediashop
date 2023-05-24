@@ -1,5 +1,5 @@
 ﻿@using PXLPRO2023Shoppers24.Models.Enums;
-@model PXLPRO2023Shoppers24.Models.Laptop
+@model PXLPRO2023Shoppers24.Data.ViewModels.NewLaptopVM
 
 @{
     ViewData["Title"] = "Create";
@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProductCategory" class="control-label"></label>
-                <select asp-for="ProductCategory" class="form-control" asp-items="Html.GetEnumSelectList<ProductCategory>()"></select>
+                <input asp-for="ProductCategory" class="form-control" readonly value="Laptop" />
                 <span asp-validation-for="ProductCategory" class="text-danger"></span>
             </div>
             <div class="form-group">

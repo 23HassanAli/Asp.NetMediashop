@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PXLPRO2023Shoppers24.Data.Cart;
 using PXLPRO2023Shoppers24.Data.ViewModels;
+using PXLPRO2023Shoppers24.Models;
 using PXLPRO2023Shoppers24.Services;
 using System.Security.Claims;
 
@@ -13,11 +14,13 @@ namespace PXLPRO2023Shoppers24.Controllers
         private readonly ILaptopService _laptopService;
         private readonly ShoppingCart _shoppingCart;
         private readonly IOrdersService _ordersService;
-        public OrderController(ILaptopService laptopService, ShoppingCart shoppingCart, IOrdersService ordersService)
+        private readonly IStockOrderRepository _stockOrder;
+        public OrderController(ILaptopService laptopService, ShoppingCart shoppingCart, IOrdersService ordersService, IStockOrderRepository stockOrder)
         {
             _laptopService = laptopService;
             _shoppingCart = shoppingCart;
             _ordersService = ordersService;
+            _stockOrder = stockOrder;
         }
         [AllowAnonymous]
         public async Task<IActionResult> Index()
@@ -69,8 +72,11 @@ namespace PXLPRO2023Shoppers24.Controllers
             var items = _shoppingCart.GetShoppingCartItems();
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
-
             await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
+            foreach (var item in items.Select(x => x.Laptop))
+            {
+                await _stockOrder.UpdateLaptop(item.Id, item);
+            }
             await _shoppingCart.ClearShoppingCartAsync();
 
             return View("OrderCompleted");
