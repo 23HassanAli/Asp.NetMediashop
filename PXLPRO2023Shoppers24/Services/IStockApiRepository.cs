@@ -10,7 +10,7 @@ namespace PXLPRO2023Shoppers24.Services
         Laptop GetById(long id);
         void Add(Laptop laptop);
         void Update(int id, Laptop laptop);
-        void Delete(Laptop laptop);
-        //IEnumerable<Laptop> GetByDepartment(long departmentId);
-    }
+        void Delete(int id);
+		void UpdateLaptop(int id, Laptop laptop);   
+	}
 }

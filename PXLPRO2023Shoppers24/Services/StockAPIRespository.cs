@@ -22,65 +22,19 @@ namespace PXLPRO2023Shoppers24.Services
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<Laptop> UpdateLaptop(int id, Laptop item)
-        {
-         
+        public void UpdateLaptop(int id, Laptop laptop)
+        {     
             try
             {
-                //item.StockQuantity--;
-                //_httpClient.BaseAddress = new Uri("https://localhost:7144/api/stock/");
-                //var laptop = new Laptop()
-                //{
-                //    Id = item.Id,
-                //    Name = item.Name,
-                //    Price = item.Price,
-                //    Description = item.Description,
-                //    StockQuantity = item.StockQuantity,
-                //    ImageURL = item.ImageURL,
-                //    ProductCategory = item.ProductCategory,
-                //    Brand = item.Brand,
-                //    Color = item.Color,
-                //    Processor = item.Processor,
-                //    ScreenSize = item.ScreenSize,
-                //    InternalRAM = item.InternalRAM,
-                //    TotalStorageCapacity = item.TotalStorageCapacity,
-                //    Touchscreen = item.Touchscreen,
-                //    VideoCard = item.VideoCard
-                //}; 
-                //_httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-                //var laptopEditVM = JsonSerializer.Serialize(laptop);
-                //var model = new StringContent(
-                // JsonSerializer.Serialize(laptop),
-                //Encoding.UTF8,
-                //Application.Json);
-
-                //using var httpResponseMessage = await _httpClient.PutAsync($"{id}", model);
-                //httpResponseMessage.EnsureSuccessStatusCode();
-                
-                //using(var client2 = new HttpClient())
-                //{
-    
-                //    client2.DefaultRequestHeaders.Accept.Clear();
-                //    client2.DefaultRequestHeaders.Accept.Add(
-                //    new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                //    client2.BaseAddress = new Uri("https://localhost:7144/");
-                //    var laptopPut = client2.PutAsJsonAsync("api/Stock/Edit", laptopEditVM);
-                //    laptopPut.Wait();
-                //    var putResult = laptopPut.Result;
-                //    if (putResult.IsSuccessStatusCode)
-                //    {
-
-                //    }
-                //}
-                //var response = await _httpClient.SendAsync(request);
-   
-                Laptop laptop1 = new Laptop();
-
-                return laptop1;
-            }
+				HttpClient client = _httpClientFactory.CreateClient(ApiConstants.StockApiHttpClientName);
+				HttpResponseMessage response = client.PutAsJsonAsync($"stock/{id}", laptop).Result;
+				if (!response.IsSuccessStatusCode)
+				{
+					throw new Exception("Could not update item");
+				}
+			}
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
@@ -112,18 +66,37 @@ namespace PXLPRO2023Shoppers24.Services
             HttpResponseMessage response = client.PostAsJsonAsync("stock", laptop).Result; 
             if(!response.IsSuccessStatusCode)
             {
-                throw new Exception("Could not save person");
+                throw new Exception("Could not save item");
             }
         }
 
         public void Update(int id, Laptop laptop)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Laptop laptop)
+            laptop.StockQuantity--;
+		    HttpClient client = _httpClientFactory.CreateClient(ApiConstants.StockApiHttpClientName);
+			HttpResponseMessage response = client.PutAsJsonAsync($"stock/{id}", laptop).Result;
+			if (!response.IsSuccessStatusCode)
+			{
+				throw new Exception("Could not update item");
+			}
+		}
+        public async void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+				HttpClient client = _httpClientFactory.CreateClient(ApiConstants.StockApiHttpClientName);
+				HttpResponseMessage response = await client.DeleteAsync($"stock/{id}");
+				if (!response.IsSuccessStatusCode)
+				{
+					throw new Exception("Could not delete item");
+				}
+			}
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            
         }
     }
 }

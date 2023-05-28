@@ -91,6 +91,7 @@ namespace PXLPRO2023Shoppers24.Controllers
                 return View(laptop);
             }
             await _laptopService.UpdateAsync(id, laptop);
+            _stockRepository.UpdateLaptop(id, laptop);
             return RedirectToAction(nameof(Index));
 
         }
@@ -110,6 +111,7 @@ namespace PXLPRO2023Shoppers24.Controllers
             if (laptopDetails == null) return View("NotFound");
 
             await _laptopService.DeleteAsync(id);
+             _stockRepository.Delete(id);
             return RedirectToAction(nameof(Index));
         }
     }

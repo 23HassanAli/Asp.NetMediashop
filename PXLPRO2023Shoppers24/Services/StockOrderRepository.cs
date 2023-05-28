@@ -19,5 +19,6 @@ namespace PXLPRO2023Shoppers24.Services
         {
             _stockRepository.Update(id, laptop);
         }
+
     }
 }

@@ -57,32 +57,32 @@ namespace MediaShopApi.Controllers
             await _laptopRepository.AddNewLaptopAsync(laptopVM);
             return Ok();
         }
-        [HttpPut("id")]
-        public async Task<IActionResult> UpdateLaptop(int id, [FromBody]LaptopEditVM laptopEditVM)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateLaptop(int id, [FromBody] MediaShopClassLibrary.Models.Laptop laptop)
         {
-            Laptop laptop = await _laptopRepository.GetLaptopByIdAsync(id);
-            if (laptop == null)
+            Laptop laptopinDatabase = await _laptopRepository.GetLaptopByIdAsync(laptop.Id);
+            if (laptopinDatabase == null)
             {
                 return NotFound();
             }
             Laptop model = new Laptop
             {
-                Id= id,
-                LaptopId = id.ToString(),
-                Name = laptopEditVM.Name,
-                Brand = laptopEditVM.Brand,
-                Price = laptopEditVM.Price,
-                Description = laptopEditVM.Description,
-                StockQuantity= laptopEditVM.StockQuantity,
-                ImageURL = laptopEditVM.ImageURL,
-                ProductCategory = laptopEditVM.ProductCategory,
-                Color = laptopEditVM.Color,
-                Processor = laptopEditVM.Processor,
-                ScreenSize = laptopEditVM.ScreenSize,
-                InternalRAM = laptopEditVM.InternalRAM,
-                TotalStorageCapacity= laptopEditVM.TotalStorageCapacity,
-                Touchscreen = laptopEditVM.Touchscreen,
-                VideoCard= laptopEditVM.VideoCard,
+                Id= laptop.Id,
+                LaptopId = laptop.Id.ToString(),
+                Name = laptop.Name,
+                Brand = laptop.Brand,
+                Price = laptop.Price,
+                Description = laptop.Description,
+                StockQuantity= laptop.StockQuantity,
+                ImageURL = laptop.ImageURL,
+                ProductCategory = laptop.ProductCategory,
+                Color = laptop.Color,
+                Processor = laptop.Processor,
+                ScreenSize = laptop.ScreenSize,
+                InternalRAM = laptop.InternalRAM,
+                TotalStorageCapacity= laptop.TotalStorageCapacity,
+                Touchscreen = laptop.Touchscreen,
+                VideoCard= laptop.VideoCard,
             };
             _laptopRepository.UpdateLaptopAsync(model);
             return Ok();

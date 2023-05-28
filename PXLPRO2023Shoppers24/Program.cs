@@ -17,6 +17,7 @@ c => { c.BaseAddress = new Uri("https://localhost:7144/api/"); });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
+builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<ILaptopService, LaptopService>();
 builder.Services.AddScoped<ISmartphoneService, SmartphoneService>();    
 builder.Services.AddScoped<IdentityRepoInterface, IdentityRepository>();
@@ -85,6 +86,13 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+	endpoints.MapDefaultControllerRoute();
+	//Enable attribute based routing for controllers:
+	endpoints.MapControllers();
+	endpoints.MapBlazorHub();
+});
 
 app.MapControllerRoute(
     name: "default",
